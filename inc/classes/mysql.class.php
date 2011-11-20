@@ -1,21 +1,16 @@
 <?php
 
 /**
- * @author	Janek Ostendorf (ozzy)
- * @copyright	Copyright (c) SkyIrc
+ * @author SkyIrc development team
+ * @copyright Copyright (c) SkyIrc
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
+ * @package PostPone
  */
 
 // Restrict access
 if(!IN_POSTPONE) {
     die("Do not open files seperately!");
 }
-
-/**
- * Description of mysql
- *
- * @author Janek Ostendorf
- * @package DSE
- */
 
 class mysql {
     

@@ -4,6 +4,7 @@
  * @author SkyIrc development team
  * @copyright Copyright (c) SkyIrc
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
+ * @package PostPone
  */
 
 // Restrict access
@@ -20,6 +21,9 @@ require_once ROOT_PATH.'inc/config.inc.php';
 // MySQL class
 require_once ROOT_PATH.'inc/classes/mysql.class.php';
 require_once ROOT_PATH.'inc/mysql.inc.php';
+
+// Smarty template engine
+require_once ROOT_PATH.'inc/smarty/Smarty.class.php';
 
 
 ?>

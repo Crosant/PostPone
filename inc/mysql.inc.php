@@ -4,6 +4,7 @@
  * @author SkyIrc development team
  * @copyright Copyright (c) SkyIrc
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
+ * @package PostPone
  */
 
 // Restrict access
