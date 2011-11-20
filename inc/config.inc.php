@@ -12,13 +12,11 @@ if(!IN_POSTPONE) {
 }
 
 // Read the config file
-$config = Spyc::YAMLLoad("config.yml");
+$config_arr = Spyc::YAMLLoad(ROOT_PATH."inc/config.yml");
 
 // Error?
-if($config === false) {
+if($config_r === false) {
     die("Error while reading the configuration file.");
 }
 
-// Debug
-print_r($config);
 ?>

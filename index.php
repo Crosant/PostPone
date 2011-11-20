@@ -18,8 +18,11 @@ $start_time = microtime(true);
 // Define for denying call of seperate files
 define("IN_POSTPONE", true);
 
+// Absolute Path
+define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']."/");
+
 // Require file for including all includes
-require_once "inc/common.inc.php";
+require_once ROOT_PATH."inc/common.inc.php";
 
 
 ?>

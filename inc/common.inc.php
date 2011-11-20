@@ -12,14 +12,14 @@ if(!IN_POSTPONE) {
 }
 
 // YAML parse class
-require_once 'classes/spyc.class.php';
+require_once ROOT_PATH.'inc/classes/spyc.class.php';
 
 // Configuration
-require_once 'config.inc.php';
+require_once ROOT_PATH.'inc/config.inc.php';
 
 // MySQL class
-require_once 'classes/mysql.class.php';
-require_once 'mysql.inc.php';
+require_once ROOT_PATH.'inc/classes/mysql.class.php';
+require_once ROOT_PATH.'inc/mysql.inc.php';
 
 
 ?>

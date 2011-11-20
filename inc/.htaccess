@@ -1,6 +1,6 @@
 # htaccess to restrict access to the configuration file
 
-#<Files config.yml>
-#  order allow,deny
-#  deny from all
-#</Files>
+<Files config.yml>
+  order allow,deny
+  deny from all
+</Files>
