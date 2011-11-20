@@ -1,0 +1,39 @@
+##########################################
+##     PostPone configuration file      ##
+## ------------------------------------ ##
+## Developed by SkyIrc development team ##
+## Copyright (c) SkyIrc                 ##
+## Licensed under GNU GPL 3             ##
+##########################################
+
+# This file stores the configuration of your
+# PostPone instance.
+# Do NEVER remove the .htaccess from this directory,
+# else your configuration including all passwords
+# is readable by everyone!
+
+####################
+# MySQL Connection #
+####################
+
+mysql:
+  
+  # MySQL server
+  server: localhost
+  
+  # Username to connect to the MySQL server
+  user: postpone
+  
+  # Password for the user specified above
+  password: password
+  
+  # Database name
+  database: postpone
+  
+  
+#################
+# Miscellaneous #
+#################
+
+# Standard locale
+locale: en_GB
