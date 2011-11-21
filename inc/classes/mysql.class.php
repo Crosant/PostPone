@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @author SkyIrc development team
- * @copyright Copyright (c) SkyIrc
+ * @author Janek Ostendorf (ozzy) <ozzy@skyirc.net>
+ * @copyright Copyright (c) Janek Ostendorf (ozzy)
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
  * @package PostPone
  */

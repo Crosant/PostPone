@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author SkyIrc development team
+ * @author SkyIrc development team <skyirc@skyirc.net>
  * @copyright Copyright (c) SkyIrc
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
  * @package PostPone
@@ -12,6 +12,10 @@ if(!IN_POSTPONE) {
     die("Do not open files seperately!");
 }
 
+// Smarty template engine
+require_once ROOT_PATH.'inc/smarty/Smarty.class.php';
+require_once ROOT_PATH.'inc/template.inc.php';
+
 // YAML parse class
 require_once ROOT_PATH.'inc/classes/spyc.class.php';
 
@@ -21,9 +25,6 @@ require_once ROOT_PATH.'inc/config.inc.php';
 // MySQL class
 require_once ROOT_PATH.'inc/classes/mysql.class.php';
 require_once ROOT_PATH.'inc/mysql.inc.php';
-
-// Smarty template engine
-require_once ROOT_PATH.'inc/smarty/Smarty.class.php';
 
 
 ?>
