@@ -16,24 +16,38 @@ if(isset($_GET['debug'])) {
 // Save time of beginning of page loading
 $start_time = microtime(true);
 
-/**#@+
- * Constants
+/*
+ * Defines
  */
 
-/**
- * Define for denying call of seperate files
- */
+// Define for denying call of seperate files
 define("IN_POSTPONE", true);
 
-/**
- * Absolute Path
- */
+
+// Actual version of PostPone
+define("VERSION", "0.1");
+
+// Absolute path
 define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']."/");
 
-/**#@-*/
+// Root URL
+$root_url = 'http';
+    if ($_SERVER["HTTPS"] == "on") {
+        $root_url .= "s";
+    }
+    $root_url .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+        $root_url .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/";
+    } 
+    else {
+        $root_url .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+define("ROOT_URL", $root_url);
+
 
 // Require file for including all includes
 require_once ROOT_PATH."inc/common.inc.php";
 
+error(MYSQL_ERR, "This is a test!", __LINE__, __FILE__);
 
 ?>

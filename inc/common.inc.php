@@ -12,9 +12,12 @@ if(!IN_POSTPONE) {
     die("Do not open files seperately!");
 }
 
-// Smarty template engine
-require_once ROOT_PATH.'inc/smarty/Smarty.class.php';
-require_once ROOT_PATH.'inc/template.inc.php';
+// Include constants and functions to be able to output errors here
+// Constants
+require_once ROOT_PATH.'inc/constants.inc.php';
+
+// Functions
+require_once ROOT_PATH.'inc/functions.inc.php';
 
 // YAML parse class
 require_once ROOT_PATH.'inc/classes/spyc.class.php';

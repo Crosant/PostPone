@@ -12,12 +12,19 @@ if(!IN_POSTPONE) {
     die("Do not open files seperately!");
 }
 
-// Read the config file
-$config = Spyc::YAMLLoad(ROOT_PATH."inc/config.yml");
+/**#@+
+ * Error type constants 
+ */
 
-// Error?
-if($config === false) {
-    die("Error while reading the configuration file.");
-}
+/**
+ * Unexpected error
+ */
+define("UNEXP_ERR", 1);
 
+/**
+ * MySQL error
+ */
+define("MYSQL_ERR", 2);
+
+/**#@-*/
 ?>
