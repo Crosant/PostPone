@@ -33,5 +33,4 @@ require_once ROOT_PATH.'inc/mysql.inc.php';
 require_once ROOT_PATH.'inc/classes/template.class.php';
 require_once ROOT_PATH.'inc/template.inc.php';
 
-
 ?>
