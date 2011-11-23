@@ -29,4 +29,7 @@ if(!defined("IN_POSTPONE")) {
         <title><?php echo $config['meta']['title']?></title>
         
     </head>
+    <body>
+        
+    </body>
 </html>

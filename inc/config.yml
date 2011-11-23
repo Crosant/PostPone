@@ -1,0 +1,68 @@
+##########################################
+##     PostPone configuration file      ##
+## ------------------------------------ ##
+## Developed by SkyIrc development team ##
+## Copyright (c) SkyIrc                 ##
+## Licensed under GNU GPL 3             ##
+##########################################
+
+# This file stores the configuration of your
+# PostPone instance.
+# Do NEVER remove the .htaccess from this directory,
+# else your configuration including all passwords
+# is readable by everyone!
+
+####################
+# MySQL Connection #
+####################
+
+mysql:
+  
+  # MySQL server
+  server: localhost
+  
+  # Username to connect to the MySQL server
+  user: postpone
+  
+  # Password for the user specified above
+  password: password
+  
+  # Database name
+  database: postpone
+  
+  # Table prefix
+  prefix: pp_
+  
+  
+
+####################
+# Meta information #
+####################
+
+meta:
+  
+  # Title of the website
+  title: PostPone
+  
+  # Author
+  author: SkyIrc development team
+  
+  # Copyright
+  copyright: Copyright (c) SkyIrc
+  
+  # Keywords (comma seperated)
+  keywords: PostPone, CMS, SkyIrc
+  
+  # Description
+  description: PostPone CMS
+
+
+#################
+# Miscellaneous #
+#################
+
+# Template (name of the directory in /templates)
+template: standard
+
+# Standard locale
+locale: en_US
