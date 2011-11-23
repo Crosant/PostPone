@@ -239,6 +239,14 @@ class mysql {
         }
     }
     
+    /**
+     * Escapet $string
+     * @param string $string
+     */
+    function escape($string) {
+        return mysql_real_escape_string($string);
+    }
+    
 }
 
 ?>

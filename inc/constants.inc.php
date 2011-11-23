@@ -19,12 +19,28 @@ if(!defined("IN_POSTPONE")) {
 /**
  * Unexpected error
  */
-define("UNEXP_ERR", 1);
+define("ERR_UNEXP", 1);
 
 /**
  * MySQL error
  */
-define("MYSQL_ERR", 2);
+define("ERR_MYSQL", 2);
+
+/**#@-*/
+
+/**#@+
+ * Page type constants
+ */
+
+/**
+ * File
+ */
+define("PAGE_FILE", 1);
+
+/**
+ * Database
+ */
+define("PAGE_DB", 2);
 
 /**#@-*/
 ?>

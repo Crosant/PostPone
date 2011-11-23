@@ -17,7 +17,7 @@ if(!isset($error_data)) {
     
     // Setting default values
     $error_data = Array();
-    $error_data['type'] = UNEXP_ERR;
+    $error_data['type'] = ERR_UNEXP;
     $error_data['message'] = "Unexpected error.";
     $error_data['line'] = null;
     $error_data['file'] = null;
@@ -26,10 +26,10 @@ if(!isset($error_data)) {
 
 // Type (const) => title
 switch ($error_data['type']) {
-    case UNEXP_ERR:
+    case ERR_UNEXP:
         $error_data['title'] = "Unexpected error";
         break;
-    case MYSQL_ERR:
+    case ERR_MYSQL:
         $error_data['title'] = "MySQL error";
         break;
     
