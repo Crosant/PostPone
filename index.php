@@ -24,11 +24,15 @@ $start_time = microtime(true);
 define("IN_POSTPONE", true);
 
 
-// Actual version of PostPone
-define("VERSION", "0.1");
+// Current version of PostPone
+define("VERSION", "0.1-dev");
+
+
 
 // Absolute path
-define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']."/");
+$root_path = $_SERVER['DOCUMENT_ROOT'];
+
+define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']);
 
 // Root URL
 $root_url = 'http';
@@ -37,17 +41,19 @@ $root_url = 'http';
     }
     $root_url .= "://";
     if ($_SERVER["SERVER_PORT"] != "80") {
-        $root_url .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/";
+        $root_url .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
     } 
     else {
-        $root_url .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+        $root_url .= $_SERVER["SERVER_NAME"];
     }
 define("ROOT_URL", $root_url);
 
-
 // Require file for including all includes
-require_once ROOT_PATH."inc/common.inc.php";
+require_once ROOT_PATH."/inc/common.inc.php";
 
+
+
+// Include template
 require($template->get_main_file());
 
 ?>

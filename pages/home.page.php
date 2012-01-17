@@ -12,10 +12,5 @@ if(!defined("IN_POSTPONE")) {
     die("Do not open files seperately!");
 }
 
-// Init static variables
-template::init($db, $config);
-
-// Declare the template object
-$template = new template($config['template']);
 
 ?>

@@ -32,6 +32,12 @@ switch ($error_data['type']) {
     case ERR_MYSQL:
         $error_data['title'] = "MySQL error";
         break;
+    case ERR_PERMS:
+        $error_data['title'] = "Insufficient Permissions (403)";
+        break;
+    case ERR_NOT_FOUND:
+        $error_data['title'] = "Page not found (404)";
+        break;
     
     // If none specified, set unexpected
     default:
@@ -97,16 +103,22 @@ $title = $error_data['title'];
         <div class="error_wrapper_abs">
             <div class="error_wrapper">
                 <div class="error_title">
+                    
                     <?=htmlentities($error_data['title'])?>
+                    
                 </div>
                 <div class="error_message">
                     <p>
+                        
                         <?=nl2br($error_data['message'], true)?>
+                        
                     </p>
 <?php if(!empty($occurance)) {
     ?>
                     <p>
+                        
                         <?=$occurance?>
+                        
                     </p>
 <?php
 } 

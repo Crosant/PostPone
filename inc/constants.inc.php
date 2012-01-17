@@ -26,6 +26,16 @@ define("ERR_UNEXP", 1);
  */
 define("ERR_MYSQL", 2);
 
+/**
+ * Permissions error / insufficient permissions
+ */
+define("ERR_PERMS", 3);
+
+/**
+ * Page not found
+ */
+define("ERR_NOT_FOUND", 4);
+
 /**#@-*/
 
 /**#@+

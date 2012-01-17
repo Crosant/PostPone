@@ -55,7 +55,7 @@ class permissions {
         
         // $node not a string?
         if(!is_string($node)) {
-            return 0;
+            return false;
         }
         
         // query
@@ -64,7 +64,7 @@ class permissions {
         $res = self::$db->query($query);
         
         if($res === false) {
-            return 0;
+            return false;
         }
         
         // Does not exist
@@ -86,18 +86,23 @@ class permissions {
      */
     public static function has_perm($user, $node) {
         
+        // If empty, there's nothing to check => true
+        if(empty($node)) {
+            return true;
+        }
+        
         // Check params
         if(!is_numeric($user)) {
-            return 0;
+            return false;
         }
         
         if(!is_string($node)) {
-            return 0;
+            return false;
         }
         
         // Check if the node exists
         if(!self::node_exists($node)) {
-            return 0;
+            return false;
         }
         
         // First user permissions, user perms come before group perms
@@ -126,18 +131,23 @@ class permissions {
      */
     public static function has_perm_user($user, $node) {
         
+        // If empty, there's nothing to check => true
+        if(empty($node)) {
+            return true;
+        }
+        
         // Check params
         if(!is_numeric($user)) {
-            return 0;
+            return false;
         }
         
         if(!is_string($node)) {
-            return 0;
+            return false;
         }
         
         // Check if the node exists
         if(!self::node_exists($node)) {
-            return 0;
+            return false;
         }
         
         // Get the permissions of the user
@@ -146,12 +156,12 @@ class permissions {
         $res = self::$db->query($query);
         
         if($res === false) {
-            return 0;
+            return false;
         }
         
         // User does not exist
         if(mysql_num_rows($res) != 1) {
-            return 0;
+            return false;
         }
         
         // Explode the permission string
@@ -186,18 +196,23 @@ class permissions {
      */
     public static function has_perm_group($group, $node) {
         
+        // If empty, there's nothing to check => true
+        if(empty($node)) {
+            return true;
+        }
+        
         // Check params
         if(!is_numeric($group)) {
-            return 0;
+            return false;
         }
         
         if(!is_string($node)) {
-            return 0;
+            return false;
         }
         
         // Check if the node exists
         if(!self::node_exists($node)) {
-            return 0;
+            return false;
         }
         
         // Get the permissions of the group
@@ -206,12 +221,12 @@ class permissions {
         $res = self::$db->query($query);
         
         if($res === false) {
-            return 0;
+            return false;
         }
         
         // Group does not exist
         if(mysql_num_rows($res) != 1) {
-            return 0;
+            return false;
         }
         
         // Explode the permission string
@@ -235,6 +250,34 @@ class permissions {
             }
             
         }
+        
+    }
+    
+    static function has_multiple_perms($user, $node_array) {
+        
+        // If empty, there's nothing to check => true
+        if(empty($node_array)) {
+            return true;
+        }
+        
+        // Check params
+        if(!is_numeric($user)) {
+            return false;
+        }
+        
+        if(!is_array($node_array)) {
+            return false;
+        }
+        
+        foreach ($node_array as $node) {
+            
+            if(!self::has_perm($user, $node)) {
+                return false;
+            }
+            
+        }
+        
+        return true;
         
     }
     

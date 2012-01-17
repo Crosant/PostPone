@@ -5,3 +5,15 @@
 ## Copyright (c) SkyIrc                 ##
 ## Licensed under GNU GPL 3             ##
 ##########################################
+
+info:
+  name: English (UK)
+  author: SkyIrc development team
+  copyright: Copyright (c) SkyIrc
+  license: Licensed under GNU GPL 3
+
+en_UK:
+  test:
+    moo: testing!
+    bla:
+      moo: test

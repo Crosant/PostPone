@@ -44,5 +44,84 @@ class page {
      */
     public $perms;
     
+    /**
+     * File to be included
+     * @var string
+     */
+    public $file;
+    
+    /**
+     * Text to be shown, if type == PAGE_DB
+     * @var string
+     */
+    public $text;
+    
+    
+    /**
+     * Fetching information about the current page ($id)
+     * @global array $config
+     * @global object $db
+     * @param int $id ID of the current page
+     * @return bool 
+     */
+    public function __construct($id) {
+        
+        global $config, $db;
+        
+        // Get information
+        $query = "SELECT * FROM ".$config['mysql']['prefix']."pages WHERE `page_id` = ".$db->escape($id);
+        
+        if(!$result = $db->query($query)) {
+            return false;
+        }
+        
+        if($db->num_rows() != 1) {
+            return false;
+        }
+        
+        $data = mysql_fetch_object($result);
+        
+        $this->name = $data->page_name;
+        $this->title = $data->page_title;
+        $this->perms = $data->page_perms;
+        $this->type = $data->page_type;
+        if($this->type == PAGE_FILE) {
+            $this->file = $data->page_file;
+        }
+        else {
+            $this->text = $data->page_text;
+        }
+        
+        return true;
+        
+    }
+    
+    /**
+     *
+     * @global array $config
+     * @global object $db
+     * @param string $name Short name of the page
+     * @return int|bool ID if success, false if not
+     */
+    static function name2id($name) {
+        
+        global $config, $db;
+        
+        $query = "SELECT * FROM ".$config['mysql']['prefix']."pages WHERE page_name = '".$db->escape($name)."'";
+        
+        if(!$result = $db->query($query)) {
+            return false;
+        }
+        
+        if($db->num_rows() != 1) {
+            return false;
+        }
+        
+        $data = mysql_fetch_object($result);
+        
+        return $data->page_id;
+        
+    }
+    
 }
 ?>

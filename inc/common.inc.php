@@ -14,23 +14,34 @@ if(!defined("IN_POSTPONE")) {
 
 // Include constants and functions to be able to output errors here
 // Constants
-require_once ROOT_PATH.'inc/constants.inc.php';
+require_once ROOT_PATH.'/inc/constants.inc.php';
 
 // Functions
-require_once ROOT_PATH.'inc/functions.inc.php';
+require_once ROOT_PATH.'/inc/functions.inc.php';
 
 // YAML parse class
-require_once ROOT_PATH.'inc/classes/spyc.class.php';
+require_once ROOT_PATH.'/inc/classes/spyc.class.php';
 
 // Configuration
-require_once ROOT_PATH.'inc/config.inc.php';
+require_once ROOT_PATH.'/inc/config.inc.php';
 
 // MySQL class
-require_once ROOT_PATH.'inc/classes/mysql.class.php';
-require_once ROOT_PATH.'inc/mysql.inc.php';
+require_once ROOT_PATH.'/inc/classes/mysql.class.php';
+require_once ROOT_PATH.'/inc/mysql.inc.php';
 
 // Template
-require_once ROOT_PATH.'inc/classes/template.class.php';
-require_once ROOT_PATH.'inc/template.inc.php';
+require_once ROOT_PATH.'/inc/classes/template.class.php';
+require_once ROOT_PATH.'/inc/template.inc.php';
+
+// Permissions class
+require_once ROOT_PATH.'/inc/classes/permissions.class.php';
+permissions::init($db, $config);
+
+// Page generation
+require_once ROOT_PATH.'/inc/classes/page.class.php';
+require_once ROOT_PATH.'/inc/page.inc.php';
+
+// Language parser
+require_once ROOT_PATH.'/inc/classes/language.class.php';
 
 ?>

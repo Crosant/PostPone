@@ -12,10 +12,10 @@ if(!defined("IN_POSTPONE")) {
     die("Do not open files seperately!");
 }
 
-// Init static variables
-template::init($db, $config);
+// Define user to be ID 0, which is guest
+// TODO: get the real ID
 
-// Declare the template object
-$template = new template($config['template']);
+$user = new stdClass();
 
+$user->id = 0;
 ?>

@@ -21,72 +21,72 @@ class mysql {
     var $host;
     
     /**
-     * Benutzername
+     * Username
      * @var string
      */
     var $user;
     
     /**
-     * Passwort
+     * Password
      * @var string
      */
     var $password;
     
     /**
-     * Datenbankname
+     * Database name
      * @var string 
      */
     var $database;
     
     /**
-     * Verbindungsstatus
+     * Status of connection
      * @var bool 
      */
     var $status = 0;
     
     /**
-     * MySQL Verbindungs ID
+     * MySQL Connection ID
      * @var mixed 
      */
     var $conID;
     
     /**
-     * MySQL Ergebnis
+     * MySQL Result
      * @var resource 
      */
     var $result;
     
     /**
-     * MySQL Fehlernummer
+     * MySQL Error number
      * @var int 
      */
     var $errornum;
     
     /**
-     * MySQL Fehlermeldung
+     * MySQL error message
      * @var string 
      */
     var $errormessage;
     
     /**
-     * Anzahl der ausgefuehrten Queries
+     * Number of executed queries
      * @var int 
      */
     var $queries = 0;    
     
     /**
-     * Dauer der Queries
+     * Length of all queries
      * @var int 
      */
     var $query_time = 0;
 
     
     /**
-     * Verbindet zum MySQL Server
+     * Connects to the MySQL server
      * @param string $host MySQL Server
      * @param string $user MySQL Benutzer
-     * @param string $password MySQL Passwort
-     * @return bool
+     * @param string $password MySQL Password
+     * @return bool Success
      */
     function connect($host, $user, $password) {
         
@@ -112,9 +112,9 @@ class mysql {
     }
     
     /**
-     * Waehlt eine Datenbank aus
-     * @param string $database Datenbankname
-     * @return bool Erfolg
+     * Chooses a database
+     * @param string $database Name of the database
+     * @return bool Success
      */
     function selectDb($database) {
         
@@ -134,9 +134,9 @@ class mysql {
     }
     
     /**
-     * Fuehrt die Abfrage aus
+     * Executes the query
      * @param string $query Query
-     * @return resource MySQL Ergebnis
+     * @return resource MySQL Result
      */
     function query($query) {
         
@@ -164,9 +164,9 @@ class mysql {
     }
     
     /**
-     * Setzt den Zeichensatz der MySQL Verbindung
-     * @param string $charset Zeichensatz
-     * @return bool Erfolg
+     * Sets the charset of the MySQL connection
+     * @param string $charset Charset
+     * @return bool Success
      */
     function setCharset($charset) {
         
@@ -185,8 +185,8 @@ class mysql {
     }
     
     /**
-     * Gibt die letzte Fehlermeldung aus
-     * @return string|bool "Fehlernummer : Fehlermeldung" oder false 
+     * Returns the last error message
+     * @return string|bool "Error number : Error message" or false 
      */
     function getLastError() {
         
@@ -200,8 +200,8 @@ class mysql {
     }
     
     /**
-     * Gibt die Anzahl der ausgefuehrten Queries aus
-     * @return int Anzahl der Queries
+     * Returns the number of executed queries
+     * @return int number of queries
      */
     function getQueries() {
         
@@ -210,8 +210,8 @@ class mysql {
     }
     
     /**
-     * Gibt die Summe der Dauer aller Queries aus
-     * @return int Dauer der Queries in Sekunden
+     * Return the sum of all executed queries (time)
+     * @return int Length of all queries (time)
      */
     function getQueryTime() {
         
@@ -220,8 +220,8 @@ class mysql {
     }
     
     /**
-     * Schliesst die Verbindung zum Server
-     * @return bool Erfolg
+     * Closes the connection to the Server
+     * @return bool Success
      */
     function disconnect() {
         
@@ -240,11 +240,26 @@ class mysql {
     }
     
     /**
-     * Escapet $string
+     * Escapes $string
      * @param string $string
      */
     function escape($string) {
         return mysql_real_escape_string($string);
+    }
+    
+    /**
+     * Returns the number of lines of the result
+     * @param rescource $result Result. Leave empty to use the last executed query.
+     * @return int
+     */
+    function num_rows($result = null) {
+        
+        if($result == null) {
+            $result = $this->result;
+        }
+        
+        return mysql_num_rows($result);
+        
     }
     
 }

@@ -28,7 +28,7 @@ function error($type, $message, $line = null, $file = null) {
     $error_data['line'] = $line;
     $error_data['file'] = $file;
     
-    include ROOT_PATH."templates/system/error.php";
+    include ROOT_PATH."/templates/system/error.php";
     
     exit;
     

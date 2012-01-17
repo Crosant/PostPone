@@ -21,10 +21,16 @@ if(!defined("IN_POSTPONE")) {
 class template {
     
     /**
-     * PostPone configuration
+     * MySQL Object reference
+     * @var object
+     */
+    private static $db;
+    
+    /**
+     * PostPone Config reference
      * @var array
      */
-    private $config;
+    private static $config;
     
     /**#@+
      * Template configuration
@@ -80,18 +86,6 @@ class template {
     
     /**#@-*/
     
-    /**#@+
-     * Display variables
-     */
-    
-    /**
-     * Page title
-     * @var string
-     */
-    public $page_title;
-    
-    /**#@-*/
-    
     /**
      * Read-in the config file and save values
      * @param string $name Short name of the template/name of the template directory
@@ -99,10 +93,8 @@ class template {
      */
     public function __construct($name) {
         
-        global $config;
-        
         // Read the configuration file
-        if(!$tpl_config = Spyc::YAMLLoad(ROOT_PATH."templates/".$name."/template.yml"))
+        if(!$tpl_config = Spyc::YAMLLoad(ROOT_PATH."/templates/".$name."/template.yml"))
                 return false;
         
         // Set the variables
@@ -117,10 +109,20 @@ class template {
         $this->css_files = explode(",", $tpl_config['css_files']);
         $this->js_files = explode(",", $tpl_config['js_files']);
         
-        // Copy config to local object
-        $this->config =& $config;
-        
         return true;
+        
+    }
+    
+    /**
+     * Init the static vars
+     * @param object $db Database connection object
+     * @param array $config PostPone configuration object 
+     */
+    public static function init(&$db, &$config) {
+        
+        // Create static references
+        self::$config =& $config;
+        self::$db =& $db;
         
     }
     
@@ -142,7 +144,7 @@ class template {
             
             foreach($this->css_files as $file) {
 
-                $return .= $indent."<link rel=\"stylesheet\" type=\"text/css\" href=\"".ROOT_URL."templates/".$this->name."/".$file."\" />\n";
+                $return .= $indent."<link rel=\"stylesheet\" type=\"text/css\" href=\"".ROOT_URL."/templates/".$this->name."/".$file."\" />\n";
 
             }
             
@@ -155,7 +157,7 @@ class template {
             
             foreach($this->js_files as $file) {
                 
-                $return .= $indent."<script type=\"text/javascript\" src=\"".ROOT_URL."templates/".$this->name."/".$file."\"></script>\n";
+                $return .= $indent."<script type=\"text/javascript\" src=\"".ROOT_URL."/templates/".$this->name."/".$file."\"></script>\n";
                 
             }
             
@@ -184,13 +186,13 @@ class template {
         $return .= $indent."<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n";
         
         // Author
-        $return .= $indent."<meta name=\"author\" content=\"".$this->config["meta"]["author"]."\" />\n";
+        $return .= $indent."<meta name=\"author\" content=\"".self::$config["meta"]["author"]."\" />\n";
         
         // Keywords
-        $return .= $indent."<meta name=\"keywords\" content=\"".$this->config["meta"]["keywords"]."\" />\n";
+        $return .= $indent."<meta name=\"keywords\" content=\"".self::$config["meta"]["keywords"]."\" />\n";
         
         // Description
-        $return .= $indent."<meta name=\"description\" content=\"".$this->config["meta"]["description"]."\" />\n";
+        $return .= $indent."<meta name=\"description\" content=\"".self::$config["meta"]["description"]."\" />\n";
         
         // Genarator
         $return .= $indent."<meta name=\"generator\" content=\"PostPone ".VERSION."\" />\n";
@@ -210,7 +212,7 @@ class template {
      */
     public function get_main_file() {
                 
-        return ROOT_PATH."templates/".$this->name."/".$this->main_file;
+        return ROOT_PATH."/templates/".$this->name."/".$this->main_file;
         
     }
     

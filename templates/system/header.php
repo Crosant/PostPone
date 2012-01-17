@@ -18,13 +18,10 @@ if(!defined("IN_POSTPONE")) {
         
         <!-- Meta tags -->
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name = "description" content = "" />
-        <meta name = "author" content = "Rainer Wahnsinn" />
-        <meta name = "keywords" content = "HTML, Meta-Informationen,Suchprogramme, HTTP-Protokoll" />
         <meta name = "generator" content = "PostPone <?=VERSION?>" />
         
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<?=ROOT_URL?>templates/system/system.css" />
+        <link rel="stylesheet" type="text/css" href="<?=ROOT_URL?>/templates/system/system.css" />
         
         <title><?=$title?></title>
         
