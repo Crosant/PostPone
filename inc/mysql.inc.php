@@ -16,11 +16,11 @@ if(!defined("IN_POSTPONE")) {
 $db = new mysql();
 
 // Connect to the MySQL Database
-$db->connect($config['mysql']['server'], $config['mysql']['user'], $config['mysql']['password'])
+$db->connect($config->get('mysql.server'), $config->get('mysql.user'), $config->get('mysql.password'))
         or error(ERR_MYSQL, "Failed connecting to the database:\n".$db->getLastError(), __LINE__, __FILE__);
 
 // Select the database
-$db->selectDb($config['mysql']['database'])
+$db->selectDb($config->get('mysql.database'))
         or error(ERR_MYSQL, "Failed selecting the database:\n".$db->getLastError(), __LINE__, __FILE__);
  
 // Set the charset to UTF-8

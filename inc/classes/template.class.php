@@ -186,13 +186,13 @@ class template {
         $return .= $indent."<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n";
         
         // Author
-        $return .= $indent."<meta name=\"author\" content=\"".self::$config["meta"]["author"]."\" />\n";
+        $return .= $indent."<meta name=\"author\" content=\"".self::$config->get('meta.author')."\" />\n";
         
         // Keywords
-        $return .= $indent."<meta name=\"keywords\" content=\"".self::$config["meta"]["keywords"]."\" />\n";
+        $return .= $indent."<meta name=\"keywords\" content=\"".self::$config->get('meta.keywords')."\" />\n";
         
         // Description
-        $return .= $indent."<meta name=\"description\" content=\"".self::$config["meta"]["description"]."\" />\n";
+        $return .= $indent."<meta name=\"description\" content=\"".self::$config->get('meta.keywords')."\" />\n";
         
         // Genarator
         $return .= $indent."<meta name=\"generator\" content=\"PostPone ".VERSION."\" />\n";

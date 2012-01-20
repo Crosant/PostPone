@@ -59,7 +59,7 @@ class permissions {
         }
         
         // query
-        $query = "SELECT * FROM ".self::$config['mysql']['prefix']."permissions WHERE `perm_node` = '".self::$db->escape($node)."' LIMIT 1";
+        $query = "SELECT * FROM ".self::$config->get('mysql.prefix')."permissions WHERE `perm_node` = '".self::$db->escape($node)."' LIMIT 1";
         
         $res = self::$db->query($query);
         
@@ -151,7 +151,7 @@ class permissions {
         }
         
         // Get the permissions of the user
-        $query = "SELECT * FROM ".self::$config['mysql']['prefix']."user WHERE `user_id` = ".self::$db->escape($user)." LIMIT 1";
+        $query = "SELECT * FROM ".self::$config->get('mysql.prefix')."user WHERE `user_id` = ".self::$db->escape($user)." LIMIT 1";
         
         $res = self::$db->query($query);
         
@@ -216,7 +216,7 @@ class permissions {
         }
         
         // Get the permissions of the group
-        $query = "SELECT * FROM ".self::$config['mysql']['prefix']."group WHERE `group_id` = ".self::$db->escape($group)." LIMIT 1";
+        $query = "SELECT * FROM ".self::$config->get('mysql.prefix')."group WHERE `group_id` = ".self::$db->escape($group)." LIMIT 1";
         
         $res = self::$db->query($query);
         

@@ -23,6 +23,7 @@ require_once ROOT_PATH.'/inc/functions.inc.php';
 require_once ROOT_PATH.'/inc/classes/spyc.class.php';
 
 // Configuration
+require_once ROOT_PATH.'/inc/classes/config.class.php';
 require_once ROOT_PATH.'/inc/config.inc.php';
 
 // MySQL class

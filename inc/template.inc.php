@@ -16,6 +16,6 @@ if(!defined("IN_POSTPONE")) {
 template::init($db, $config);
 
 // Declare the template object
-$template = new template($config['template']);
+$template = new template($config->get('template'));
 
 ?>

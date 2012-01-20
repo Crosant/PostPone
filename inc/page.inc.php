@@ -21,7 +21,7 @@ if(isset($_GET['page'])) {
 else {
     
     // Set standard page
-    $page_name = $config['std_page'];
+    $page_name = $config->get('std_page');
     
 }
 
@@ -34,7 +34,8 @@ if($page_id === false) {
 }
 
 // Create the page object
-$page = new page($page_id) or error(ERR_UNEXP, "Failed to initialize the page.", __LINE__, __FILE__);
+$page = new page($page_id) 
+    or error(ERR_UNEXP, "Failed to initialize the page.", __LINE__, __FILE__);
 
 // Check permissions
 

@@ -69,7 +69,7 @@ class page {
         global $config, $db;
         
         // Get information
-        $query = "SELECT * FROM ".$config['mysql']['prefix']."pages WHERE `page_id` = ".$db->escape($id);
+        $query = "SELECT * FROM ".$config->get('mysql.prefix')."pages WHERE `page_id` = ".$db->escape($id);
         
         if(!$result = $db->query($query)) {
             return false;
@@ -107,7 +107,7 @@ class page {
         
         global $config, $db;
         
-        $query = "SELECT * FROM ".$config['mysql']['prefix']."pages WHERE page_name = '".$db->escape($name)."'";
+        $query = "SELECT * FROM ".$config->get('mysql.prefix')."pages WHERE page_name = '".$db->escape($name)."'";
         
         if(!$result = $db->query($query)) {
             return false;

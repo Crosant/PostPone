@@ -13,7 +13,7 @@ if(!defined("IN_POSTPONE")) {
 }
 
 // Read the config file
-$config = Spyc::YAMLLoad(ROOT_PATH."/inc/config.yml");
+$config = new config();
 
 // Error?
 if($config === false) {
