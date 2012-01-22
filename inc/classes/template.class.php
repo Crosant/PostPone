@@ -192,7 +192,7 @@ class template {
         $return .= $indent."<meta name=\"keywords\" content=\"".self::$config->get('meta.keywords')."\" />\n";
         
         // Description
-        $return .= $indent."<meta name=\"description\" content=\"".self::$config->get('meta.keywords')."\" />\n";
+        $return .= $indent."<meta name=\"description\" content=\"".self::$config->get('meta.description')."\" />\n";
         
         // Genarator
         $return .= $indent."<meta name=\"generator\" content=\"PostPone ".VERSION."\" />\n";

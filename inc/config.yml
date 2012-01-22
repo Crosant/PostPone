@@ -57,6 +57,42 @@ meta:
   description: PostPone CMS
 
 
+####################
+# Cookies/Sessions #
+####################
+
+session:
+
+  # Cookie prefix
+  cookie_prefix: pp_
+
+  # Cookie domain
+  cookie_domain: ''
+
+  # Cookie path
+  cookie_path: ''
+
+  # Standard session duration (seconds)
+  # Standard: 1800 (30 minutes)
+  sess_duration: 1800
+
+  # Long session duration (seconds)
+  # Standard: 15768000 (half a year)
+  sess_long_duration: 15768000
+
+#################
+# User settings #
+#################
+
+user:
+
+  # Default user group
+  def_group: 1
+
+  # Guest group
+  guest_group: 0
+  
+
 #################
 # Miscellaneous #
 #################
@@ -65,4 +101,7 @@ meta:
 template: standard
 
 # Standard locale
-locale: en_US
+locale: en_UK
+
+# Standard page (short name)
+std_page: home

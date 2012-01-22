@@ -13,7 +13,9 @@ info:
   license: Licensed under GNU GPL 3
 
 en_UK:
-  test:
-    moo: testing!
-    bla:
-      moo: test
+
+  # User variables
+  user:
+
+    # Guest
+    guest: Guest

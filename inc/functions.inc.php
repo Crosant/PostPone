@@ -19,6 +19,14 @@ if(!defined("IN_POSTPONE")) {
  * @package PostPone
  */
 
+/**
+ * Outputs an error screen
+ * @param int $type Constant
+ * @param string $message Error message
+ * @param int $line
+ * @param int $file
+ * @return void Stops the execution
+ */
 function error($type, $message, $line = null, $file = null) {
     
     $error_data = Array();
@@ -34,5 +42,21 @@ function error($type, $message, $line = null, $file = null) {
     
 }
 
+/**
+ * Deletes a cookie
+ * @param string $cookie Name of the cookie
+ * @return void
+ */
+function delcookie($cookie) {
+
+    session_start();
+    $_SESSION = array();
+    setcookie($cookie, '', time()-3600, '/');
+    setcookie(session_name(), '', time()-3600,'/');
+    session_destroy();
+
+    return;
+
+}
 /**#@-*/
 ?>
