@@ -12,21 +12,6 @@ if(!defined("IN_POSTPONE")) {
     die("Do not open files seperately!");
 }
 
-// Init static vars
-user::init($db, $config, $language);
-
-$uid = user::sess_check();
-
-// Check for login
-if($uid <= 0) {
-
-    // Normal user
-    $user = new user($uid);
-
-}
-else {
-
-    // Guest
-    $user = new user(0);
-}
+// Create the language
+$language = new language($config->get('locale'));
 ?>

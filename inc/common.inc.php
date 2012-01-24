@@ -44,6 +44,7 @@ require_once ROOT_PATH.'/inc/page.inc.php';
 
 // Language parser
 require_once ROOT_PATH.'/inc/classes/language.class.php';
+require_once ROOT_PATH.'/inc/language.inc.php';
 
 // User and group
 require_once ROOT_PATH.'/inc/classes/user.class.php';

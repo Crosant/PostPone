@@ -75,6 +75,12 @@ class user {
     private static $config;
     
     /**
+     * PostPone language reference
+     * @var array
+     */
+    private static $language;
+    
+    /**
      * Create the user depending on the ID
      * @param int $id User ID
      */
@@ -112,7 +118,7 @@ class user {
 
             $this->group = self::$config->get("user.guest_group");
             $this->id = 0;
-            $this->name = $language->get("user.guest");
+            $this->name = self::$language->get("user.guest");
             $this->perms = array();
             $this->last_login = time();
             $this->reg_time = time();
@@ -130,12 +136,14 @@ class user {
      * Init the static vars
      * @param object $db Database connection object
      * @param array $config PostPone configuration object 
+     * @param object $language PostPone language object
      */
-    public static function init(&$db, &$config) {
+    public static function init(&$db, &$config, &$language) {
         
         // Create static references
         self::$config =& $config;
         self::$db =& $db;
+        self::$language = $language;
         
     }
     
@@ -246,7 +254,7 @@ class user {
         $password = md5(md5($password).$salt);
 
         // Save salt and password in an obj
-        $return = stdClass();
+        $return = new stdClass();
 
         $return->salt = $salt;
         $return->password = $password;
@@ -352,6 +360,32 @@ class user {
         }
         return true;
 
+    }
+    
+
+    public static function sess_start($user, $long = 0) {
+        
+        // Check for user's existance
+        if(!self::user_exists($user)) {
+            return false;
+        }
+        
+        // Generate the key
+        $key = self::rand_str(64);
+        
+        // Expiration time/date
+        $expire = $long == 0 ? time() + self::$config->get("session.sess_duration") : time() + self::$config->get("session.sess_long_duration");
+        
+        // Insert into DB
+        $query = "INSERT INTO ".self::$config->get("mysql.prefix")."sessions (`sess_key`, `sess_user`, `sess_expire`, `sess_long`)
+            VALUES ('".self::$db->escape($key)."', ".self::$db->escape($user).", ".self::$db->escape($expire).", ".self::$db->escape($long).")";
+        
+        if(!self::$db->query($query)) {
+            return false;
+        }
+        
+        setcookie(self::$config->get("session.cookie_prefix")."session", $key, 0, self::$config->get("session.cookie_path"), self::$config->get("session.cookie_domain"));
+        
     }
     
 }
