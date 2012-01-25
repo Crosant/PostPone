@@ -1,0 +1,34 @@
+##########################################
+##    PostPone template config file     ##
+## ------------------------------------ ##
+## Developed by SkyIrc development team ##
+## Copyright (c) SkyIrc                 ##
+## Licensed under GNU GPL 3             ##
+##########################################
+
+# Short name of the template
+name: woobie
+
+# Full title of the template
+title: Woobie - Standard PostPone template
+
+# Author(s)
+author: SkyIrc development team
+
+# Copyright
+copyright: Copyright (c) SkyIrc
+
+# License
+license: GNU GPL 3
+
+
+### Files ###
+
+# Main template file
+main_file: template.php
+
+# Stylesheet files relative to the template directory (comma seperated list, without spaces)
+css_files: style.css
+
+# JavaScript files relative to the template directory [optional] (comma seperated list, without spaces)
+js_files: js/jQuery.js

@@ -26,5 +26,5 @@ $db->selectDb($config->get('mysql.database'))
 // Set the charset to UTF-8
 $db->setCharset("utf8")
         or error(ERR_MYSQL, "Failed setting the charset to UTF-8:\n".$db->getLastError(), __LINE__, __FILE__);
-        
+
 ?>
