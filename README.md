@@ -1,6 +1,6 @@
-######################
-#### PostPone CMS ####
-######################
+![PostPone - Believe in tomorrow](http://postpone.skyirc.net/images/logo.png)
+
+# PostPone CMS
 
 PostPone is a lightweight content management system (CMS) written in php.
 It is developed by the SkyIrc php development team.
