@@ -21,6 +21,12 @@ if(!defined("IN_POSTPONE")) {
 class page {
     
     /**
+     * Page ID
+     * @var int
+     */
+    public $id;
+    
+    /**
      * Short Name of the page
      * @var string
      */
@@ -81,6 +87,7 @@ class page {
         
         $data = mysql_fetch_object($result);
         
+        $this->id = $data->page_id;
         $this->name = $data->page_name;
         $this->title = $data->page_title;
         $this->perms = $data->page_perms;
@@ -120,6 +127,55 @@ class page {
         $data = mysql_fetch_object($result);
         
         return $data->page_id;
+        
+    }
+    
+    /**
+     *
+     * @global array $config
+     * @global object $db
+     * @param string $name Short name of the page
+     * @return int|bool ID if success, false if not
+     */
+    static function id2name($id) {
+        
+        global $config, $db;
+        
+        $query = "SELECT * FROM ".$config->get('mysql.prefix')."pages WHERE page_id = ".$db->escape($id);
+        
+        if(!$result = $db->query($query)) {
+            return false;
+        }
+        
+        if($db->num_rows() != 1) {
+            return false;
+        }
+        
+        $data = mysql_fetch_object($result);
+        
+        return $data->page_name;
+        
+    }
+    
+    /**
+     * Does the page exist?
+     * @param int $page Page ID
+     */
+    public static function page_exists($page) {
+        
+        global $config, $db;
+        
+        $query = "SELECT * FROM ".$config->get("mysql.prefix")."pages WHERE page_id = ".$db->escape($page);
+        
+        if(!$res = $db->query($query)) {
+            return false;
+        }
+        
+        if($db->num_rows($res) != 1) {
+            return false;
+        }
+        
+        return true;
         
     }
     

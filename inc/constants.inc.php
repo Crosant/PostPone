@@ -53,4 +53,20 @@ define("PAGE_FILE", 1);
 define("PAGE_DB", 2);
 
 /**#@-*/
+
+/**#@+
+ * Navigation type constants
+ */
+
+/**
+ * File
+ */
+define("NAV_INTERNAL", 1);
+
+/**
+ * Database
+ */
+define("NAV_EXTERNAL", 2);
+
+/**#@-*/
 ?>

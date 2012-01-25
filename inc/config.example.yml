@@ -98,7 +98,7 @@ user:
 #################
 
 # Template (name of the directory in /templates)
-template: standard
+template: woobie
 
 # Standard locale
 locale: en_UK

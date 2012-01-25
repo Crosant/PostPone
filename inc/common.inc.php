@@ -34,6 +34,9 @@ require_once ROOT_PATH.'/inc/mysql.inc.php';
 require_once ROOT_PATH.'/inc/classes/template.class.php';
 require_once ROOT_PATH.'/inc/template.inc.php';
 
+// Navigation
+require_once ROOT_PATH.'/inc/classes/nav.class.php';
+
 // Permissions class
 require_once ROOT_PATH.'/inc/classes/permissions.class.php';
 permissions::init($db, $config);

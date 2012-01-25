@@ -48,10 +48,10 @@ else {
 
 // TODO: Make this more elegant
 // Subdirectory:
-$subdir = "/PostPone";
+define("SUBDIR", "");
 
-$root_path .= $subdir;
-$root_url .= $subdir;
+$root_path .= SUBDIR;
+$root_url .= SUBDIR;
 
 define("ROOT_URL", $root_url);
 define("ROOT_PATH", $root_path);

@@ -84,6 +84,12 @@ class template {
      */
     private $js_files = Array();
     
+    /**
+     * Complete template.yml
+     * @var array
+     */
+    private $tpl_config;
+    
     /**#@-*/
     
     /**
@@ -96,6 +102,8 @@ class template {
         // Read the configuration file
         if(!$tpl_config = Spyc::YAMLLoad(ROOT_PATH."/templates/".$name."/template.yml"))
                 return false;
+        
+        $this->tpl_config = $tpl_config;
         
         // Set the variables
         $this->name = $tpl_config['name'];
@@ -213,6 +221,42 @@ class template {
     public function get_main_file() {
                 
         return ROOT_PATH."/templates/".$this->name."/".$this->main_file;
+        
+    }
+    
+    /**
+     * Outputs user defined configs in the template.yml
+     * @param string $var
+     */
+    public function config($var) {
+        
+        if(!is_string($var)) {
+            return false;
+        }
+        
+        // Explode
+        $var_arr = explode(".", $var);
+        
+        // temporary array
+        $tmp = $this->tpl_config;
+        
+        // Try to get the string, recurse deeper and deeper ...
+        foreach($var_arr as $cur) {
+            
+            if(isset($tmp[$cur])) {
+                $tmp = $tmp[$cur];
+            }
+            else {
+                $tmp = null;
+                break;
+            }
+        }
+        
+        if(!is_string($tmp) || empty($tmp) || is_null($tmp)) {
+            return $var;
+        }
+        
+        return $tmp;
         
     }
     

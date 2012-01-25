@@ -22,41 +22,32 @@
         $template->print_includes(8);
 ?>   
         
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="<?php echo $template->config("fav_mime"); ?>" href="<?php echo ROOT_URL."/".$template->config("favicon"); ?>" />
+        
         <title><?php echo $config->get('meta.title'); ?> | <?php echo $page->title; ?></title>
         
     </head>
     <body>
-       <!--
+
+        <!-- Start wrapper -->
         <div id="wrapper">
-            
-            <div id="content">
+            <!-- Start navigation -->
 <?php
-            if($page->type == PAGE_FILE) {
-                include(ROOT_PATH."/pages/".$page->file);
-            }
-            else {
-                echo $page->text;
-            }
+            nav::output($page->id);
 ?>
-                
-            </div>
-            <div class="clear">
-            </div>
-            <div id="footer-container">
-                <div id="footer">
-                    I am a footer!
-                </div>
-            </div>
-        </div>-->
-
-
-        <div id="wrapper">
+            
+            <!-- End navigation -->
+            
+            
+            <!-- Start logo -->
             <div id="logo"></div>
+            <!-- End logo -->
 
-            <br />
+            
+            <!-- Start conent -->
             <div id="content">
 
-                <!-- ### Start Content ### -->
 
 <?php
                 // Include content
@@ -68,17 +59,19 @@
                 }
 ?>
 
-                <!-- ### End Content ### -->
-
 
             </div>
-            <div id="clear">
-            </div>
-            <div id="footer-container">
+            <!-- End content -->
+            
+            
+            <!-- Start footer -->
+            <div id="footer-wrapper">
                 <div id="footer">
                     <a href="/impressum/">Impressum</a>
                 </div>
             </div>
+            <!-- End footer -->
         </div>
+        <!-- End wrapper -->
     </body>
 </html>

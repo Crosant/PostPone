@@ -5,19 +5,24 @@
  */
 
 hmtl, body {
-    font-size: 12px;
     height: 100%;
+    
     background-color: rgb(250,250,250);
-    margin: 0;
-    padding: 0;
+
+    font-size: 12px;
     font-family: Arial,Helvetica,sans-serif;
 }
 
+
+/*
+ *  Containers
+ */
+
 #wrapper {
+    
     position: relative;
-    height: 100%;
-    overflow: hidden;
-    width: 70%;
+    min-height: 100%;
+    width: 80%;
     min-width: 800px;
     background-color: #ffffff;
     margin: 0 auto;
@@ -25,44 +30,65 @@ hmtl, body {
 
     z-index: 100;
 
+    border-left: 1px solid rgb(230,230,230);
+    border-right: 1px solid rgb(230,230,230);
 
     box-shadow: 8px 0 10px rgba(0,0,0,0.05), -8px 0 10px rgba(0,0,0,0.05);
     -moz-box-shadow: 8px 0 10px rgba(0,0,0,0.05), -8px 0 10px rgba(0,0,0,0.05);
     -webkit-box-shadow: 8px 0 10px rgba(0,0,0,0.05), -8px 0 10px rgba(0,0,0,0.05);
 }
 
-#content {
-    margin: 0;
-    padding-bottom: 45px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background: #fff;
-    /*overflow: hidden;*/
-    font-size: 12px;
-}
 
-.clear {
-    clear: both;
+#logo {
+    height: 110px;
+    margin: auto auto;
+    background: #fff url("/images/logo.png") center center no-repeat;
 }
 
 #nav {
     
 }
 
-#footer-container {
-    
+#content {
+    padding-bottom: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #fff;
+    font-size: 12px;
+}
+
+#footer-wrapper {
     position: absolute;
-    bottom: 0;  
+    margin: 0;
+    paddin: 0;
+    bottom: 0;
     width: 100%;
-    
 }
 
 #footer {
-    
+   
     padding: 5px 20px;
-    background-color: #e1e1e1;
-    border-top: 1px solid #d4d4d4;
+    background-color: rgb(250,250,250);
+    border-top: 1px solid rgb(230,230,230);
     font-size: 11px;
     text-align: center;
     
+}
+
+/* Some stuff for positioning the footer */
+html, body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ *  Misc. classes
+ */
+
+.clear {
+    clear: both;
 }
