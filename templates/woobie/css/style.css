@@ -7,6 +7,9 @@
 hmtl, body {
     height: 100%;
     
+    padding: 0;
+    margin: 0;
+    
     background-color: rgb(250,250,250);
 
     font-size: 12px;
@@ -45,14 +48,8 @@ hmtl, body {
     background: #fff url("/images/logo.png") center center no-repeat;
 }
 
-#nav {
-    
-}
-
 #content {
-    padding-bottom: 45px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
     background: #fff;
     font-size: 12px;
 }
@@ -60,7 +57,7 @@ hmtl, body {
 #footer-wrapper {
     position: absolute;
     margin: 0;
-    paddin: 0;
+    padding: 0;
     bottom: 0;
     width: 100%;
 }
@@ -78,9 +75,6 @@ hmtl, body {
 /* Some stuff for positioning the footer */
 html, body {
     height: 100%;
-}
-
-* {
     margin: 0;
     padding: 0;
 }

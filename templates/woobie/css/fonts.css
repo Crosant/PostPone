@@ -1,0 +1,21 @@
+/*
+ * author:      SkyIrc development team <skyirc@skyirc.net>
+ * copyright:   Copyright (c) SkyIrc
+ * license:     http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
+ */
+
+/* Ubuntu */
+
+@font-face
+{ 
+	font-family: "Ubuntu";
+	src: url('/fonts/Ubuntu-R.ttf') format("truetype");
+}
+@font-face
+{ 
+	font-family: "Ubuntu";
+	font-weight: bold;
+	src: url('/fonts/Ubuntu-B.ttf') format("truetype");
+}
+
+/* Neuropol */

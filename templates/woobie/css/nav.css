@@ -4,3 +4,71 @@
  * license:     http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
  */
 
+
+nav ul {
+    /* TODO: Make this damned more elegant!! */
+    height: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul > li {
+    margin: 0;
+    padding: 0;
+}
+
+nav li > a {
+    display: block;
+}
+
+nav ul > li {
+    float: left;
+}
+
+nav {
+    font-family: Ubuntu, sans-serif;
+    font-size: 12pt;
+    color: #000;
+    border-bottom: 1px solid rgb(230,230,230);
+    padding-left: 6px;
+    padding-right: 6px;
+    background: rgb(250,250,250);
+}
+
+nav a, nav a:hover {
+    padding: 4px 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+nav ul > li {
+    margin-right: 5px;
+}
+
+nav ul > li {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    padding: 0;
+    margin: 0px 5px 0px 0px;
+}
+
+nav ul > li:hover {
+    border-left: 1px solid rgb(230,230,230);
+    border-right: 1px solid rgb(230,230,230);
+}
+nav ul > li.active {
+    background: #fff url('/templates/woobie/images/nav-active_bg') repeat-x bottom left;
+    color: #000;
+    border-left: 1px solid rgb(230,230,230);
+    border-right: 1px solid rgb(230,230,230);
+    padding-bottom: 1px;
+    margin-bottom: -1px;
+}
+nav ul > li.active > a {
+    color: #000;
+}

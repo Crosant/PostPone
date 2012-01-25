@@ -147,7 +147,7 @@ class page {
             return false;
         }
         
-        if($db->num_rows() != 1) {
+        if(mysql_num_rows($result) != 1) {
             return false;
         }
         

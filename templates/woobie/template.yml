@@ -28,7 +28,7 @@ license: GNU GPL 3
 main_file: template.php
 
 # Stylesheet files relative to the template directory (comma seperated list, without spaces)
-css_files: css/style.css,css/nav.css
+css_files: css/nav.css,css/style.css,css/fonts.css
 
 # JavaScript files relative to the template directory [optional] (comma seperated list, without spaces)
 js_files: js/jQuery.js

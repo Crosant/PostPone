@@ -33,36 +33,28 @@ class nav {
         global $config, $db;
         
         // Fetch information
-        $query = "SELECT * FROM".$config->get("mysql.prefix")."nav SORT BY nav_id DESC";
+        $query = "SELECT * FROM ".$config->get("mysql.prefix")."nav ORDER BY nav_id ASC";
         
         if(!$res = $db->query($query)) {
             return false;
         }
-        
-        if(!$data = mysql_fetch_array($res)) {
-            return false;
-        }
-        
-        echo 
-<<<SAFEHTML
-<nav>
-    <ul>
-SAFEHTML;
+        // TODO: clean up the HTML output
+        echo "
+<nav>\n
+    <ul>\n";
         
         // Count entries
         $nav_num = count($data);
         
-        // CSS classes to assign
-        $classes = "";
         
         // Control variable
         $i = 0;
         
-        foreach ($data as $line) {
+        while($line = mysql_fetch_array($res)) {
             
+            $classes = "";
             
-            
-            switch($line['page_type']) {
+            switch($line['nav_type']) {
                 
                 case NAV_INTERNAL:
                     
@@ -99,32 +91,29 @@ SAFEHTML;
                     
                     break;
                 
-                default:
-                    continue;
-                    break;
-                
             }
             
             // Remove last space
             $classes = trim($classes);
             
             // Output
-            echo
-<<<SAFEHTML
-        <li class="{$classes}">
-            <a href="{$link}">{$line['title']}</a>
-        </li>
-SAFEHTML;
+            echo "
+        <li";
+            if(!empty($classes))
+                echo " class=\"$classes\"";
+            echo ">\n
+            <a href=\"$link\">".$line['nav_title']."</a>\n
+        </li>\n
+";
             
             $i++;
             
         }
         
-        echo 
-<<<SAFEHTML
-    </ul>
-</nav>
-SAFEHTML;
+        echo "
+    </ul>\n
+</nav>\n
+<br class=\"clear\" />\n";
         
     }
     
