@@ -51,6 +51,8 @@ require_once ROOT_PATH.'/inc/language.inc.php';
 
 // User and group
 require_once ROOT_PATH.'/inc/classes/user.class.php';
+require_once ROOT_PATH.'/inc/classes/group.class.php';
 require_once ROOT_PATH.'/inc/user.inc.php';
+
 
 ?>

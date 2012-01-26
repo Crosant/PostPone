@@ -14,6 +14,7 @@ if(!defined("IN_POSTPONE")) {
 
 // Init static vars
 user::init($db, $config, $language);
+group::init($db, $config, $language);
 
 $uid = user::sess_check();
 
@@ -22,11 +23,12 @@ if($uid <= 0) {
 
     // Normal user
     $user = new user($uid);
+    $group = new group($user->group);
 
 }
 else {
-
     // Guest
     $user = new user(0);
+    $group = new group($config->get("user.guest_group"));
 }
 ?>
