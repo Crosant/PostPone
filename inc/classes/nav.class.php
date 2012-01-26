@@ -44,7 +44,7 @@ class nav {
     <ul>\n";
         
         // Count entries
-        $nav_num = count($data);
+        $nav_num = mysql_num_rows($res);
         
         
         // Control variable
